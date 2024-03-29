@@ -16,9 +16,11 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "paper" && computerSelection == "rock") ||
     (playerSelection == "scissors" && computerSelection == "paper")
   ) {
+    playerScore++
     return `You win! ${playerSelection} beats ${computerSelection}.`;
   }
   else {
+    computerScore++
     return `You lose... ${computerSelection} beats ${playerSelection}.`;
   };
 };
@@ -47,11 +49,14 @@ function playGame() {
     console.log("------------");
   };
   console.log("Game over.");
-  if (playerScore > computerScore) {
+  if (playerScore == computerScore) {
+    console.log("It's a draw");
+  }
+  else if (playerScore > computerScore) {
     console.log("You are the winner!");
   }
   else {
-    console.log("You lose to the computer...");
+    console.log("You lose against the computer...");
   }
 };
 
